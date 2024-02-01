@@ -41,10 +41,12 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
 
     private lateinit var seekBarUpdateRunnable: Runnable
     private val seekBarUpdateDelayMillis: Long = 1000
+    private var currentIconIndex = 0
 
     private lateinit var favoriteAnimationRunnable: Runnable
     private val favoriteAnimationDelayMillis: Long = 300
 
+    val iconArray: IntArray = intArrayOf(R.drawable.ic_cool, R.drawable.ic_cry, R.drawable.ic_smile, R.drawable.ic_sad, R.drawable.ic_love)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideStatusBar()
@@ -52,7 +54,7 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
         viewBinding = ActivityPlaySongBinding.inflate(layoutInflater)
         setScreenHigh()
         setContentView(viewBinding.root)
-        setBackground()
+//        setBackground()
 
         viewBinding.tvName.isSelected = true
 
@@ -97,6 +99,7 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
             viewBinding.imgFavorite.post(favoriteAnimationRunnable)
             viewBinding.flDisc.startAnimation(wheelAnimation)
             viewBinding.seekBar.postDelayed(seekBarUpdateRunnable, seekBarUpdateDelayMillis)
+//            randomizeFavoriteIcon()
         } else {
             viewBinding.flDisc.clearAnimation()
         }
@@ -139,8 +142,8 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
     }
 
     private fun setBackground() {
-        viewBinding.root.background = ContextCompat.getDrawable(this, R.drawable.background_music)
-        viewBinding.root.background.alpha = 30
+//        viewBinding.root.background = ContextCompat.getDrawable(this, R.drawable.background_music)
+//        viewBinding.root.background.alpha = 30
     }
 
     private fun setScreenHigh() {
@@ -192,6 +195,11 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
         val favoriteDrawable = viewBinding.imgFavorite.drawable
 
         favoriteAnimationRunnable = Runnable {
+            // Randomize icon index
+            currentIconIndex = (0 until iconArray.size).random()
+
+            val favoriteDrawable = ContextCompat.getDrawable(this, iconArray[currentIconIndex])
+
             with(FloatingAnimationView(this)) {
                 setImageDrawable(favoriteDrawable)
                 scaleType = ImageView.ScaleType.CENTER_INSIDE
@@ -262,5 +270,10 @@ class PlaySongActivity : BaseSongActivity<PlaySongPresenter>(), PlaySongView {
 
             it.startAnimation(scaleAnimation)
         }
+    }
+    private fun randomizeFavoriteIcon() {
+        val randomIndex = (0 until iconArray.size).random()
+        val newIconResId = iconArray[randomIndex]
+        viewBinding.imgFavorite.setImageResource(newIconResId)
     }
 }

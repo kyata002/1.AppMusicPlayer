@@ -17,6 +17,7 @@ class SongListAdapter(private val presenter: SongListPresenter) :
             itemView.setOnClickListener {
                 presenter.onSongClick(adapterPosition)
             }
+            itemView.
         }
     }
 
@@ -30,6 +31,9 @@ class SongListAdapter(private val presenter: SongListPresenter) :
         val song: Song = getItem(position)
 
         holder.viewBinding.tvName.text = song.name
+        holder.viewBinding.btnDetail.setOnClickListener {
+
+        }
 //        holder.viewBinding.tvArtist.text = song.author
         holder.viewBinding.tvDuration.text = TimeUtil.timeMillisToTime(song.duration)
     }

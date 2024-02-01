@@ -63,8 +63,8 @@
         app:layout_constraintTop_toTopOf="@+id/imgBackground"
         app:layout_constraintVertical_bias=".91"
         app:layout_constraintWidth_percent=".15"
-        app:srcCompat="@drawable/ic_love"
-        app:tint="@android:color/holo_red_dark" />
+        app:srcCompat="@drawable/ic_door"
+         />
 
     <TextView
         android:id="@+id/tvProgress"
@@ -73,6 +73,7 @@
         android:layout_marginBottom="8dp"
         android:textColor="@color/colorTitleBlack"
         android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintStart_toStartOf="@+id/seekBar"
         tools:text="00:00" />
@@ -107,6 +108,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorTitleBlack"
         android:textSize="@dimen/text_medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvProgress"
         app:layout_constraintEnd_toEndOf="@+id/seekBar"
         app:layout_constraintTop_toTopOf="@+id/tvProgress"

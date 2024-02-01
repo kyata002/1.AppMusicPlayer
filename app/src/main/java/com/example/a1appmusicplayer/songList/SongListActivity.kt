@@ -158,8 +158,8 @@ class SongListActivity : BaseSongActivity<SongListPresenter>(), SongListView {
     }
 
     private fun setBackground() {
-        viewBinding.root.background = ContextCompat.getDrawable(this, R.drawable.background_music)
-        viewBinding.root.background.alpha = 30
+//        viewBinding.root.background = ContextCompat.getDrawable(this, R.drawable.background_music)
+//        viewBinding.root.background.alpha = 30
     }
 
     private fun initElementAnimation() {
@@ -187,9 +187,9 @@ class SongListActivity : BaseSongActivity<SongListPresenter>(), SongListView {
             presenter.filterSong(it.toString())
         }
 
-        viewBinding.imgInfo.setOnClickListener {
-//            openGithub()
-        }
+//        viewBinding.imgInfo.setOnClickListener {
+////            openGithub()
+//        }
 
         viewBinding.btnPlay.setOnClickListener {
             presenter.onSongPlay()
