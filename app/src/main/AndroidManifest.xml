@@ -31,6 +31,8 @@
         <activity
             android:name=".playSong.PlaySongActivity"
             android:screenOrientation="portrait" />
+        <activity android:name="com.example.a1appmusicplayer.InforSong.DetailDialog"
+            android:theme="@style/TransparentTheme"/>
 
         <service
             android:name=".player.PlayerService"

@@ -1,9 +1,12 @@
 package com.example.a1appmusicplayer.songList
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a1appmusicplayer.InforSong.DetailDialog
 import com.example.a1appmusicplayer.databinding.AdapterSongListBinding
 import com.example.a1appmusicplayer.model.Song
 import com.example.a1appmusicplayer.model.SongItemCallback
@@ -17,7 +20,6 @@ class SongListAdapter(private val presenter: SongListPresenter) :
             itemView.setOnClickListener {
                 presenter.onSongClick(adapterPosition)
             }
-            itemView.
         }
     }
 
@@ -32,7 +34,8 @@ class SongListAdapter(private val presenter: SongListPresenter) :
 
         holder.viewBinding.tvName.text = song.name
         holder.viewBinding.btnDetail.setOnClickListener {
-
+            val intent = Intent(context, DetailDialog::class.java)
+            context.startActivity(intent)
         }
 //        holder.viewBinding.tvArtist.text = song.author
         holder.viewBinding.tvDuration.text = TimeUtil.timeMillisToTime(song.duration)

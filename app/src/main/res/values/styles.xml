@@ -24,4 +24,13 @@
         <item name="android:windowEnterAnimation">@anim/slide_from_left</item>
         <item name="android:windowExitAnimation">@anim/slide_to_right</item>
     </style>
+    <style name="TransparentTheme" parent="Theme.AppCompat">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/trans</item>
+        <item name="android:statusBarColor">@color/trans</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- Add more style attributes as needed -->
+    </style>
 </resources>
+
+

@@ -3,6 +3,7 @@
     <color name="colorPrimary">#02c0a6</color>
     <color name="colorPrimaryDark">#008577</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="trans">#2D9D9D9D</color>
 
     <color name="colorCardBackground">#ffffff</color>
     <color name="colorTitleWhite">@android:color/white</color>
